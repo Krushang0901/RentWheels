@@ -6,13 +6,14 @@ const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-  const [admin, setAdminUser] = useState(JSON.parse(localStorage.getItem("Admin")));
+  const [user, setUser] = useState(() => JSON.parse(localStorage.getItem("user")));
+  const [admin, setAdminUser] = useState(() => JSON.parse(localStorage.getItem("Admin")));
   const navigate = useNavigate();
 
   useEffect(() => {
     const handleStorageChange = () => {
       setUser(JSON.parse(localStorage.getItem("user")));
+      setAdminUser(JSON.parse(localStorage.getItem("Admin")));
     };
 
     window.addEventListener("storage", handleStorageChange);
@@ -35,12 +36,14 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("Admin");
     setUser(null);
     setAdminUser(null);
-    navigate("/LoginSignup"); 
+    navigate("/LoginSignup");
   };
+
   const isAdmin = () => !!admin;
+  const isUser = () => !!user;
 
   return (
-    <AuthContext.Provider value={{ user, admin, login, loginAsAdmin, logout, isAdmin }}>
+    <AuthContext.Provider value={{ user, admin, login, loginAsAdmin, logout, isAdmin, isUser }}>
       {children}
     </AuthContext.Provider>
   );
