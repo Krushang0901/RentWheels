@@ -16,7 +16,7 @@ connectDB();
 
 const app = express();
 app.use(cors({
-  origin: 'http://localhost:3000'
+  origin: 'https://rentwheels-frontend.onrender.com'
 }));
 
 // Increase request size limit
