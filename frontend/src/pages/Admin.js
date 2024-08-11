@@ -14,7 +14,7 @@ function Admin() {
 
     const fetchCars = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/cars/');
+            const response = await fetch('https://rentwheels.onrender.com/api/cars/');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -39,7 +39,7 @@ function Admin() {
 
     const handleDeleteCarClick = async (carId) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/cars/delete-car/${carId}`, {
+            const response = await fetch(`https://rentwheels.onrender.com/api/cars/delete-car/${carId}`, {
                 method: 'DELETE'
             });
             if (!response.ok) {
@@ -82,7 +82,7 @@ function Admin() {
             carData.imageId = currentCar.imageId._id;
         }
 
-        const url = formMode === 'add' ? 'http://localhost:5000/api/cars/add-car' : `http://localhost:5000/api/cars/update-car/${currentCar._id}`;
+        const url = formMode === 'add' ? 'https://rentwheels.onrender.com/api/cars/add-car' : `https://rentwheels.onrender.com/api/cars/update-car/${currentCar._id}`;
         const method = formMode === 'add' ? 'POST' : 'PUT';
 
         try {

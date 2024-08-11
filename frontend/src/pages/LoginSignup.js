@@ -36,7 +36,7 @@ const LoginSignup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const backend = 'http://localhost:5000';
+    const backend = 'https://rentwheels.onrender.com';
     
     const url = isLogin ? `${backend}/api/auth/login` : `${backend}/api/auth/register`;
     const method = 'POST';

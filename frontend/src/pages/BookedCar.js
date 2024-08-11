@@ -10,7 +10,7 @@ function BookedCar() {
 
     const fetchBookings = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/booking/getAllBookings');
+            const response = await fetch('https://rentwheels.onrender.com/api/booking/getAllBookings');
             const data = await response.json();
             setBookings(data);
         } catch (error) {

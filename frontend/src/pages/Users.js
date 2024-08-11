@@ -16,7 +16,7 @@ const Users = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/user/getUsers');
+      const response = await fetch('https://rentwheels.onrender.com/api/user/getUsers');
       const data = await response.json();
       setUsers(data.map(user => ({ ...user, isEditing: false })));
     } catch (error) {
@@ -43,7 +43,7 @@ const Users = () => {
   const handleSave = async (index) => {
     const user = users[index];
     try {
-      await fetch('http://localhost:5000/api/user/adminUpdateProfile', {
+      await fetch('https://rentwheels.onrender.com/api/user/adminUpdateProfile', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ const Users = () => {
 
   const handleDelete = async (email) => {
     try {
-      await fetch('http://localhost:5000/api/user/deleteuser', {
+      await fetch('https://rentwheels.onrender.com/api/user/deleteuser', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ const Users = () => {
 
   const handleAddUser = async () => {
     try {
-      await fetch('http://localhost:5000/api/user/adduser', {
+      await fetch('https://rentwheels.onrender.com/api/user/adduser', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

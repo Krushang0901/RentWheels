@@ -13,7 +13,7 @@ const MyCarBookings = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/booking/user/${user.id}`);
+        const response = await fetch(`https://rentwheels.onrender.com/api/booking/user/${user.id}`);
         const data = await response.json();
         setBookings(data);
       } catch (error) {
@@ -34,7 +34,7 @@ const MyCarBookings = () => {
     const reviewText = reviewTexts[bookingId];
     if (reviewText) {
       try {
-        const response = await fetch('http://localhost:5000/api/booking/add-review', {
+        const response = await fetch('https://rentwheels.onrender.com/api/booking/add-review', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ const MyCarBookings = () => {
           });
 
           // Optionally fetch the updated bookings to reflect the new review
-          // const updatedResponse = await fetch(`http://localhost:5000/api/booking/user/${user.id}`);
+          // const updatedResponse = await fetch(`https://rentwheels.onrender.com/api/booking/user/${user.id}`);
           // const updatedData = await updatedResponse.json();
           // setBookings(updatedData);
         } else {
@@ -196,7 +196,7 @@ const CarImage = ({ imageId }) => {
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/images/${imageId}`);
+        const response = await fetch(`https://rentwheels.onrender.com/api/images/${imageId}`);
         const blob = await response.blob();
         const url = URL.createObjectURL(blob);
         setImageSrc(url);

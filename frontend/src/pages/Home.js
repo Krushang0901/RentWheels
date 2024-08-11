@@ -9,7 +9,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/cars/');
+        const response = await fetch('https://rentwheels.onrender.com/api/cars/');
         const data = await response.json();
         setCars(data);
         setIsLoading(false);
@@ -23,7 +23,7 @@ const HomePage = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/booking/getAllBookings')
+    fetch('https://rentwheels.onrender.com/api/booking/getAllBookings')
       .then((response) => response.json())
       .then((data) => {
         const allReviews = data.flatMap(booking =>

@@ -39,7 +39,7 @@ const UserProfile = () => {
 
   const fetchUserProfile = async (email) => {
     setLoading(true);
-    const backend = 'http://localhost:5000';
+    const backend = 'https://rentwheels.onrender.com';
     try {
       const response = await fetch(`${backend}/api/user/getuser`, {
         method: 'POST',
@@ -83,7 +83,7 @@ const UserProfile = () => {
     e.preventDefault();
     setLoading(true);
 
-    const backend = 'http://localhost:5000';
+    const backend = 'https://rentwheels.onrender.com';
     await fetch(`${backend}/api/user/profile`, {
       method: 'PUT',
       headers: {
@@ -104,7 +104,7 @@ const UserProfile = () => {
       return;
     }
 
-    const backend = 'http://localhost:5000';
+    const backend = 'https://rentwheels.onrender.com';
     const response = await fetch(`${backend}/api/user/change-password`, {
       method: 'PUT',
       headers: {
