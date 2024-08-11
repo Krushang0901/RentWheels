@@ -33,6 +33,7 @@ function BookedCar() {
                                 <th className="py-2 px-4 border-b">Plate</th>
                                 <th className="py-2 px-4 border-b">Booking Date</th>
                                 <th className="py-2 px-4 border-b">Return Date</th>
+                                <th className="py-2 px-4 border-b">Booking Status</th>
                                 <th className="py-2 px-4 border-b">User</th>
                                 <th className="py-2 px-4 border-b">Email</th>
                                 <th className="py-2 px-4 border-b">Phone</th>
@@ -54,6 +55,7 @@ function BookedCar() {
                                     <td className="py-2 px-4 border-b">{booking.car.plate}</td>
                                     <td className="py-2 px-4 border-b">{new Date(booking.bookingDate).toLocaleDateString()}</td>
                                     <td className="py-2 px-4 border-b">{new Date(booking.returnDate).toLocaleDateString()}</td>
+                                    <th className="py-2 px-4 border-b">{booking.status}</th>
                                     <td className="py-2 px-4 border-b">{booking.user.firstName} {booking.user.lastName}</td>
                                     <td className="py-2 px-4 border-b">{booking.user.email}</td>
                                     <td className="py-2 px-4 border-b">{booking.user.phoneNumber}</td>
