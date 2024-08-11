@@ -1,0 +1,128 @@
+.contact-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 100px;
+  border-radius: 8px;
+  width: 80%;
+}
+
+.contact-section img {
+  height: auto;
+  margin-right: 20px;
+  border-radius: 8px;
+}
+
+.contact-details {
+  width: 100%;
+}
+
+.contact-details h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+.m-3 {
+  margin: 15px 0;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #28a745;
+  border: 1px solid #28a745;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+@media (max-width: 1225px) {
+  .contact-section {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .contact-section img {
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 50%;
+  }
+
+  .contact-details {
+    width: 100%;
+  }
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .contact-section img {
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .contact-details {
+    width: 100%;
+  }
+}

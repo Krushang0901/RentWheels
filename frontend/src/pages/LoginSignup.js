@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './LoginSignup.css';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../components/AuthContext';
 
 
 const LoginSignup = () => {
   const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
+  const { user, login, loginAsAdmin } = useAuth();
+
+  useEffect(() => {
+    if (user) navigate("/");
+  }, [user, navigate]);
+
 
   const [formData, setFormData] = useState({
-    name: '',
+    username: '',
     email: '',
     password: ''
   });
@@ -41,9 +48,17 @@ const LoginSignup = () => {
       const data = await response.json();
 
       if (response.ok) {
+
         toast.success(data.message);
         console.log(isLogin ? 'Logged in:' : 'Registered:', data);
         if(isLogin){
+        login(data.user); 
+        if (data.user?.isAdmin) {
+          console.log("isAdmin");
+          loginAsAdmin(data.user);
+          return navigate("/Admin");
+        }
+
           navigate('/');
         }
       } else {
@@ -85,7 +100,7 @@ const LoginSignup = () => {
               <label htmlFor="signup-input-user" className="login__label">
                 Username
               </label>
-              <input id="signup-input-user" name="name" className="login__input" type="text" value={formData.name} onChange={handleInputChange} />
+              <input id="signup-input-user" name="username" className="login__input" type="text" value={formData.username} onChange={handleInputChange} />
               <label htmlFor="signup-input-email" className="login__label">
                 Email
               </label>

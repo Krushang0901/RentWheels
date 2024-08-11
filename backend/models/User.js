@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const UserSchema = new mongoose.Schema({
-  name: {
+  username: {
     type: String,
     required: true,
   },
@@ -15,21 +15,46 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-});
-
-UserSchema.pre('save', async function (next) {
-  if (!this.isModified('password')) {
-    return next();
+  firstName: {
+    type: String,
+    required: false,
+  },
+  lastName: {
+    type: String,
+    required: false,
+  },
+  
+ dateOfBirth: {
+    type: Date,
+    required: false,
+  },
+  phoneNumber: {
+    type: String,
+    required: false,
+  },
+  address: {
+    type: String,
+    required: false,
+  },
+  city: {
+    type: String,
+    required: false,
+  },
+  country: {
+    type: String,
+    required: false,
+  },
+  zipCode: {
+    type: String,
+    required: false,
+  },
+  isAdmin:{
+    type: Boolean,
+    required: false,
+    default:false,
   }
-
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
-  next();
 });
 
-UserSchema.methods.matchPassword = async function (enteredPassword) {
-  return await bcrypt.compare(enteredPassword, this.password);
-};
 
 const User = mongoose.model('User', UserSchema);
 
