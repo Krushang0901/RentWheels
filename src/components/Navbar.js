@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; // Removed useRef as it is not used
 import { Link as RouterLink } from 'react-router-dom';
-import { useAuth } from '../components/AuthContext';
+import { useAuth } from './AuthContext';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
