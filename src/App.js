@@ -14,6 +14,8 @@ import Admin from './pages/Admin';
 import BookedCar from './pages/BookedCar';
 import { withAdminCheck, withUserCheck } from './components/RouteGuards';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { AuthProvider } from './components/AuthContext';
+
 
 const ProtectedUserProfile = withUserCheck(UserProfile);
 const ProtectedCarList = withUserCheck(CarList);
